@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>I Hack Time</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+        }
+        
+        svg {
+            display: block;
+            margin: calc(50vh - 50vmin) auto;
+            min-width: 15em;
+            min-height: 15em;
+            width: 100vmin;
+            height: 100vmin;
+            max-width: 100em;
+            max-height: 100em;
+            font-size: 1em;
+        }
+        
+        * {
+            vector-effect: non-scaling-stroke;
+        }
+        
+        [id*='mark'] {
+            stroke: #eee;
+        }
+        
+        [id='mark--major'] {
+            stroke-width: 7;
+        }
+        
+        [id='mark--minor'] {
+            stroke-width: 2;
+        }
+        
+        [id='ticks'] text {
+            dominant-baseline: middle;
+            text-anchor: middle;
+            font: 20px verdana, sans-serif;
+            fill: #aaa;
+        }
+        
+        [id='ticks'] .quad {
+            font: 700 28px verdana, sans-serif;
+            fill: #eee;
+        }
+        
+        .hand--h,
+        .hand--m {
+            stroke: #eee;
+            stroke-linecap: round;
+        }
+        
+        .hand--h line:nth-child(2),
+        .hand--m line:nth-child(2) {
+            stroke: #4ca454;
+            stroke-width: 3;
+        }
+        
+        .hand--h {
+            stroke-width: 7;
+        }
+        
+        .hand--m {
+            stroke-width: 5;
+        }
+        
+        .hand--s {
+            stroke: #be4c39;
+        }
+        
+        .hand--s line {
+            stroke-width: 2;
+        }
+        
+        .hand--s circle {
+            fill: #e18728;
+        }
+        
+        .hand--s circle:nth-of-type(2) {
+            fill: #e0a197;
+        }
+        
+        [id='arc'] {
+            fill: transparent;
+            stroke: #4ca454;
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+        
+        [id='vertex'] {
+            fill: #4ca454;
+        }
+        
+        .counterclockwise [id='vertex'] {
+            fill: #be4c39;
+        }
+        
+        .counterclockwise [id='arc'] {
+            stroke: #be4c39;
+        }
+    </style>
+
+    <script src="js/prefixfree.min.js"></script>
+
+</head>
+<body>
+
+    <svg viewbox="-450 -450 900 900">
+        <defs>
+            <line id="mark--major" y1="28.8"></line>
+            <line id="mark--minor" y1="14.4"></line>
+            <circle id="cc" r="360"></circle>
+        </defs>
+        <g id="ticks"></g>
+        <g id="hands">
+            <g class="hand--h">
+                <line y2="-234"></line>
+                <line y1="-136.8" y2="-205.2"></line>
+            </g>
+            <g transform="rotate(25)" class="hand--m">
+                <line y2="-298.8"></line>
+                <line y1="-201.60000000000002" y2="-270"></line>
+            </g>
+            <g transform="rotate(60)" class="hand--s">
+                <line y1="36" y2="-342"></line>
+                <circle r="14.4"></circle>
+                <circle r="7.2"></circle>
+            </g>
+        </g>
+        <g id="progress">
+            <path id="arc"></path>
+            <polygon id="vertex" points="0,-405 -39,-425 -20,-405  -39,-385"></polygon>
+        </g>
+    </svg>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
